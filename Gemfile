@@ -55,3 +55,5 @@ gem 'net-pop'
 gem 'net-smtp'
 
 gem 'jsbundling-rails'
+
+gem 'google_maps_service', '~> 0.4.2'
