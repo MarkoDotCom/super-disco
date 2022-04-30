@@ -29,14 +29,16 @@ services:
     depends_on:
       - db
 
-  webpack:
-    build: .
-    image: rails-on-docker:1.4.0
-    command: yarn build --watch
-    volumes:
-      - .:/usr/src/app:cached
-      - bundle:/usr/local/bundle
-      - node_modules:/usr/src/app/node_modules
+  # webpack:
+  #   build: .
+  #   ports: 
+  #     - "3035:3035"
+  #   image: rails-on-docker:1.4.0
+  #   command: bin/webpack-dev-server
+  #   volumes:
+  #     - .:/usr/src/app:cached
+  #     - bundle:/usr/local/bundle
+  #     - node_modules:/usr/src/app/node_modules
 
 volumes:
   bundle:

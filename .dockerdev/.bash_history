@@ -11,3 +11,10 @@ rails credentials:edit
 EDITOR="vin" rails credentials:edit
 EDITOR="vim" rails credentials:edit
 EDITOR="vim --wait" rails credentials:edit
+rails webpacker:install
+yarn --version
+exit
+bin/webpack-dev-server
+rails webpacker:install
+exit 
+yarn add babel babel-core babel-loader

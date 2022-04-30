@@ -54,6 +54,7 @@ gem 'net-imap'
 gem 'net-pop'
 gem 'net-smtp'
 
-gem 'jsbundling-rails'
+# gem 'jsbundling-rails'
+gem 'webpacker'
 
 gem 'google_maps_service', '~> 0.4.2'
