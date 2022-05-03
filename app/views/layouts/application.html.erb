@@ -4,15 +4,22 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         
-    <title>Railsondocker</title>
+    <title>GPS Waypoints App</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
+     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyANYJIdCbRlAn1vNOWq-SYhZqTqcwdHh_Q&libraries=places&callback=dispatchMapsEvent",
+                                async: true,
+                                defer: true,
+                                "data-turbolinks-eval": false %>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container">
+      <%= link_to "Home", root_path %>
+      <%= yield %>
+    </div>
   </body>
 </html>

@@ -1,11 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @place.name %>
-</p>
-
-<p>
   <strong>Latitude:</strong>
   <%= @place.latitude %>
 </p>
@@ -16,8 +11,8 @@
 </p>
 
 <p>
-  <h2>Google Maps:</h2>
-</p>
+  <h1>Google Maps:</h1>
+<%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=15&size=400x300&center=#{@place.latitude},#{@place.longitude}&key=AIzaSyANYJIdCbRlAn1vNOWq-SYhZqTqcwdHh_Q", alt: "Map" %></p>
 
 <%= link_to 'Edit', edit_place_path(@place) %> |
 <%= link_to 'Back', places_path %>

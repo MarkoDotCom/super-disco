@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_27_163208) do
+ActiveRecord::Schema.define(version: 2022_05_02_034638) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,15 @@ ActiveRecord::Schema.define(version: 2022_04_27_163208) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "gps", force: :cascade do |t|
+    t.decimal "longitude", null: false
+    t.decimal "latitude", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "vehicle_id"
+    t.index ["vehicle_id"], name: "index_gps_on_vehicle_id"
+  end
+
   create_table "places", force: :cascade do |t|
     t.string "name"
     t.decimal "latitude"
@@ -30,4 +39,30 @@ ActiveRecord::Schema.define(version: 2022_04_27_163208) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "stops", force: :cascade do |t|
+    t.bigint "trip_id", null: false
+    t.integer "position"
+    t.string "address"
+    t.decimal "latitude", precision: 10, scale: 6
+    t.decimal "longitude", precision: 10, scale: 6
+    t.date "arrival_date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["trip_id"], name: "index_stops_on_trip_id"
+  end
+
+  create_table "trips", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "vehicles", force: :cascade do |t|
+    t.string "vehicle_identifier", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "gps", "vehicles"
+  add_foreign_key "stops", "trips"
 end

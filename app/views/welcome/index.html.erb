@@ -1,3 +1,37 @@
-<h1>Welcome to Places</h1>
+<div class="jumbotron">
+    <div class="container-fluid">
+    <h1>GPS Waypoints</h1>
+    <p>Please enter one place location and a vehicle identifier to save them in the database.</p>
+</div>
 
-<%= link_to "Places", places_path %>
+<div>
+    <h3>Add New Vehicle Position To GPS System <%= link_to '[View All GPS Waypoints]', gps_path, class: "h6" %></h3>
+    <%= render 'gps/form', gp: @gp %>
+</div>
+
+<div>
+    <h3>Database Vehicles <%= link_to '[New Vehicle]', new_vehicle_path, class: "h6"%></h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Vehicle Identifier</th>
+          <th>Last Seen</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @vehicles_last_seem.each do |vehicle| %>
+        <tr>
+            <td align="center"><%= vehicle[:vehicle] %></td>
+            <td><%= vehicle[:last_seen].present? ? "longitude #{vehicle[:last_seen]&.longitude} latitude #{vehicle[:last_seen]&.latitude} at #{vehicle[:last_seen]&.created_at}" : "never"%></td>
+          </tr>
+        <% end %>
+      </tbody>
+</table>
+
+<div>
+    <h3>All Vehicles Latest Position Markers:</h3>
+    <div data-controller="index-map" data-action="google-maps-callback@window->index-map#initializeMap" data-target="index-map.map" class="map" data-index-map-positions-value="<%= @vehicles_last_seem.to_json %>"/>
+</div>
+
+
+

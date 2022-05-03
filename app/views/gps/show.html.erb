@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @gp.longitude %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @gp.latitude %>
+</p>
+
+<p>
+  <strong>Vehicle Identifier:</strong>
+  <%= @gp.vehicle.vehicle_identifier %>
+</p>
+
+<p>
+  <h1>Google Maps:</h1>
+<%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=15&size=400x300&center=#{@gp.latitude},#{@gp.longitude}&key=AIzaSyANYJIdCbRlAn1vNOWq-SYhZqTqcwdHh_Q", alt: "Map" %></p>
+
+<%= link_to 'Edit', edit_gp_path(@gp) %> |
+<%= link_to 'Back', gps_path %>

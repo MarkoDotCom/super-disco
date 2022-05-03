@@ -10,3 +10,15 @@ Place.create!([
     { "name": "Westminster Abbey", "latitude": "51.499581", "longitude": "-0.127309"},
     { "name": "Big Ben", "latitude": "51.500792", "longitude": "-0.124613"}
     ])
+
+Vehicle.create!([
+    {"vehicle_identifier": "HA-8040"},
+    {"vehicle_identifier": "BB-1313"},
+    {"vehicle_identifier": "XH-6090"},
+    ])
+
+Gp.create!([
+    {"latitude": 51.501564, "longitude": -0.141944, "vehicle_id": 1},
+    {"latitude": 51.499581, "longitude": -0.127309, "vehicle_id": 2},
+    {"latitude": 51.500792, "longitude": -0.124613, "vehicle_id": 3},
+])
