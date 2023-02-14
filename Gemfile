@@ -59,4 +59,4 @@ gem 'webpacker'
 
 gem 'google_maps_service', '~> 0.4.2'
 
-gem 'rack-cors', '~> 0.4.0'
+gem 'rack-cors', '~> 2.0.0'
